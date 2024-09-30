@@ -10,6 +10,6 @@ int main(int argc, char *argv[]) {
 		output("<DONE>");
 	}
 	else
-		usage(argv[0]);
+		usage("prog (prog-a, prog-so)");
 	return 0;
 }

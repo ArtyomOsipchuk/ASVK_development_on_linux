@@ -8,13 +8,17 @@ all:	README README-a README-so test
 
 test:	prog prog-a prog-so
 	./prog 2> file1 ; ./prog-a 2> file2 ; LD_LIBRARY_PATH=`pwd` ./prog-so 2> file3
-	echo `cmp file1 file2`
-	echo `cmp file1 file3`
-	echo `cmp file2 file3`
+	cmp file1 file2
+	cmp file1 file3
+	cmp file2 file3
 	./prog a > file1 ; ./prog-a a > file2 ; LD_LIBRARY_PATH=`pwd` ./prog-so a > file3
-	cmp file1 file2 ; cmp file1 file3 ; cmp file2 file3
+	cmp file1 file2
+	cmp file1 file3
+	cmp file2 file3
 	./prog a b c > file1 ; ./prog-a a b c > file2 ; LD_LIBRARY_PATH=`pwd` ./prog-so a b c > file3
-	cmp file1 file2 ; cmp file1 file3 ; cmp file2 file3
+	cmp file1 file2
+	cmp file1 file3
+	cmp file2 file3
 
 liboutput_static.a:	liboutput_static.a(fun.o const.o)
 	ar -rcs liboutput_static.a $^
