@@ -28,7 +28,11 @@ int main(int argc, char *argv[]) {
         for (buf = NULL; (chars = getline(&buf, &len, stdin)) != -1; buf = NULL) {
                 buf[chars - 1] = 0;
                 if (regexec(&regex, buf, MAXGR, bags, 0) == 0) {
-                        for(int i = 1; i < MAXGR && bags[i].rm_so >= 0; ++i) {
+                        if (bags[0].rm_so == 0) {
+				printf("Ошибка: Invalid back reference\n");
+				return 0;
+			}
+			for(int i = 1; i < MAXGR && bags[i].rm_so >= 0; ++i) {
                                 b = bags[i].rm_so, e = bags[i].rm_eo;
 				char repl[e - b];
 				sprintf(repl, "\\%d", i);

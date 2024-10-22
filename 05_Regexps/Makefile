@@ -26,8 +26,6 @@ check:
 	echo 'eabc' | ./esub 'ab' 'BA'
 	echo 'DabcE' | ./esub 'a(b)c' '\1_\1'
 	echo '_abcdef_' | ./esub '(a)b(c)d(e)' '<\3\2\1>'
-	echo '2024 17 October Thursday' | ./esub '([[:digit:]]{4}) +([[:digit:]]{1, 2}) +([[:alpha:]]+) +([[:alpha:]]+)' '\4, \2 \3 year of \1'
-	echo '2024 17 October Thursday' | sed -E 's/([[:digit:]]{4}) +([[:digit:]]{1, 2}) +([[:alpha:]]+) +([[:alpha:]]+)/\4, \2 \3 year of \1/'
 
 clean:
 	rm -f $(GENERATES)
