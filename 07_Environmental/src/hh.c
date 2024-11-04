@@ -4,6 +4,7 @@
 #include "ctype.h"
 #include "string.h"
 #include "rhash.h" /* LibRHash interface */
+#include "unistd.h"
 
 #ifndef READLINE
 #include <readline/readline.h>
@@ -13,14 +14,14 @@ int main(int argc, char *argv[]) {
    while (1) {
         char *input = NULL;
 	size_t size = 0;
-        printf("> ");
 #ifndef READLINE
-        input = readline("@ ");
+        input = readline("> ");
         if (input == NULL) {
                 printf(">>Exiting command line<<\n");
 		return 0;
         }
 #else 
+        printf("> ");
 	if (getline(&input, &size, stdin) == -1) {
                 printf(">>Exiting command line<<\n");
 		return 0;

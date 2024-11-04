@@ -1,4 +1,4 @@
-CFLAGS = -Wall -O0 -g
+CFLAGS = -Wall -O0 -g -lrhasher -lreadlines
 
 bin_PROGRAMS=hh
 
@@ -10,5 +10,5 @@ notatty.sh:
 	echo 'test "`./key < /dev/null 2>&1`" = "./key: Not a terminal"' > $@
 	chmod +x $@
 
-#gitclean:
-#	git clean -df
+gitclean:
+	git clean -df

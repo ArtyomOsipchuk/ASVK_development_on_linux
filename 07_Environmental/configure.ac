@@ -4,9 +4,9 @@
 AC_PREREQ([2.71])
 AC_INIT([rhasher], [1.0], [arto4002@yandex.ru])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
-AC_CONFIG_SRCDIR([rhasher.c])
-AC_CONFIG_HEADERS([config.h])
+
 AC_CONFIG_SRCDIR([src/hh.c])
+AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
 AC_PROG_CC
@@ -15,8 +15,8 @@ AC_PROG_CC
 
 # Checks for header files.
 AC_CHECK_HEADERS([unistd.h])
-AC_CHECK_LIB([rhash],[initscr],[],[AC_MSG_ERROR([is needed])])
-AC_CHECK_LIB([readline],[optional])
+AC_CHECK_LIB([rhash],[initscr],[],[AC_MSG_ERROR([rhash is needed])])
+AC_CHECK_LIB([optional], [readline])
 
 AC_ARG_ENABLE([readline],
     AS_HELP_STRING([--without-readline], [Enable force input without readline]),
