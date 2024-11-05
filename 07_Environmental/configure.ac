@@ -5,7 +5,7 @@ AC_PREREQ([2.69])
 AC_INIT([rhasher], [1.0], [arto4002@yandex.ru])
 AM_INIT_AUTOMAKE([foreign subdir-objects])
 
-AC_CONFIG_SRCDIR([src/hh.c])
+AC_CONFIG_SRCDIR([src/rhash.c])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
