@@ -3,27 +3,32 @@
 #include "stdio.h"
 #include "ctype.h"
 #include "string.h"
-#include "rhash.h" /* LibRHash interface */
+#include "rhash.h"
 #include "unistd.h"
 
-#ifndef READLINE
+#ifdef HAVE_READLINE
 #include <readline/readline.h>
 #endif
 
 int main(int argc, char *argv[]) {
+#ifdef HAVE_READLINE
+   printf(">>Используется readline<<\n");
+#else
+   printf(">>Используется getline<<\n");
+#endif   
    while (1) {
         char *input = NULL;
-	size_t size = 0;
-#ifndef READLINE
+#ifdef HAVE_READLINE
         input = readline("> ");
         if (input == NULL) {
-                printf(">>Exiting command line<<\n");
+                printf("\n>>Exiting command line<<\n");
 		return 0;
         }
 #else 
+	size_t size = 0;
         printf("> ");
 	if (getline(&input, &size, stdin) == -1) {
-                printf(">>Exiting command line<<\n");
+                printf("\n>>Exiting command line<<\n");
 		return 0;
         }
 #endif
@@ -31,7 +36,10 @@ int main(int argc, char *argv[]) {
         char *command = strdup(input);
 
         token1 = strtok(command, " ");
-	if (token1[0] == '\n') {
+	if (!token1) {
+		printf(">>Ввод пуст, введите [тип хэша] и [имя файла или строку]<<\n");
+		continue;
+	} else if (token1[0] == '\n') {
 		printf(">>Ввод пуст, введите [тип хэша] и [имя файла или строку]<<\n");
 		continue;
 	}
@@ -64,10 +72,8 @@ int main(int argc, char *argv[]) {
                 fclose(file);
 		data[strlen(data) - 1] = '\0';
 	}
-	printf("data >%s<\n", data);
 	
-	rhash context;
-   	char digest[64];
+   	unsigned char digest[64];
   	char output[130];
    	rhash_library_init();
 	int res = -1;
