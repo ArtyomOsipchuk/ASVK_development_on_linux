@@ -1,0 +1,30 @@
+--- labitinth2.c	2024-11-18 21:58:19.429298780 +0300
++++ labitinth3.c	2024-11-18 21:59:24.572078551 +0300
+@@ -3,13 +3,14 @@
+ 
+ int main(int argc, char *argv[]) {
+ 	if (argc < 3) {
+-		printf("Usage ./labirinth2 [.#] [n]\n");
++		printf("Usage ./labirinth3 [random_seed] [.#] [n]\n");
+ 		return 0;
+ 	}
+-	int n = atoi(argv[2]);
++	int seed = atoi(argv[1]);
++	int n = atoi(argv[3]);
+ 	n = n * 2 + 1;
+-	char wall = argv[1][1];
+-	char space = argv[1][0];
++	char wall = argv[2][1];
++	char space = argv[2][0];
+ 	char maze[n][n];
+ 	for (int i = 0; i < n; ++i) {
+ 		for (int j = 0; j < n; ++j) {
+@@ -22,7 +23,7 @@
+ 	}
+ 
+ 	int v[4][2] = {{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
+-	srand(42);
++	srand(seed);
+ 	
+ 	int x = rand() % (n - 1) + 1;
+ 	int y = rand() % (n - 1) + 1;
