@@ -20,7 +20,9 @@ int main(int argc, char*argv[]) {
 	while (down <= up) {
 		printf(_("Is your number bigger than %d?\n"), n);
         	char ans[128];
-		scanf("%s", ans);
+		if (!scanf("%s", ans)) {
+			return 0;
+		}
 		for (int i = 0; i < strlen(ans); ++i) {
 			ans[i] = tolower(ans[i]);
 		}
