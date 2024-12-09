@@ -1,0 +1,63 @@
+# Russian translations for FULL-PACKAGE-NAME package
+# Английские переводы для пакета FULL-PACKAGE-NAME.
+# Copyright (C) 2024 THE FULL-PACKAGE-NAME'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the FULL-PACKAGE-NAME package.
+# Artos <artos@host-81>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FULL-PACKAGE-NAME VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-02 23:27+0300\n"
+"PO-Revision-Date: 2024-11-06 21:26+0300\n"
+"Last-Translator: Artos <artos@host-81>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/guess.c:69 src/guess.c:106
+#, c-format
+msgid "Is your number bigger than "
+msgstr "Ваше число больше "
+
+#: src/guess.c:125
+#, c-format
+msgid "Imagine the number!\n"
+msgstr "Загадайте число!\n"
+
+#: src/guess.c:128
+#, c-format
+msgid "Usage: ./guess [-r]\n"
+msgstr "Использование: ./guess [-r]\n"
+
+#: src/guess.c:129
+#, c-format
+msgid "-r to use roman numbers\n"
+msgstr "-r чтобы использовать римские цифры\n"
+
+#: src/guess.c:149
+#, c-format
+msgid "Is your number bigger than %d?\n"
+msgstr "Ваше число больше %d?\n"
+
+#: src/guess.c:160
+msgid "yes"
+msgstr "да"
+
+#: src/guess.c:163
+msgid "no"
+msgstr "нет"
+
+#: src/guess.c:167
+#, c-format
+msgid "Please enter 'yes' or 'no'\n"
+msgstr "Пожалуйста введите 'да' или 'нет'\n"
+
+#: src/guess.c:171
+#, c-format
+msgid "Your number is %d!\n"
+msgstr "Ваше число %d!\n"
